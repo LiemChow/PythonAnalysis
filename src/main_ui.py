@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QMainWindow, QTextEdit, QAction, QApplication, QDesktopWidget
+from PyQt5.QtWidgets import QMainWindow, QAction, QApplication, QDesktopWidget
 from PyQt5.QtGui import QIcon
 
 
@@ -17,23 +17,43 @@ class Example(QMainWindow):
 
         self.setWindowTitle('人民日报——今日新闻分析')
 
-        textEdit = QTextEdit()
-        self.setCentralWidget(textEdit)
-
-        exitAction = QAction(QIcon('../img/V.png'), 'Exit', self)
+        exitAction = QAction(QIcon('../img/tuichu.png'), '退出', self)
         exitAction.setShortcut('Ctrl+Q')
         exitAction.setStatusTip('退出')
         exitAction.triggered.connect(self.close)
 
-        self.statusBar()
+        getAction = QAction(QIcon('../img/huoqu.png'), '获取今日数据', self)
+        getAction.setShortcut('Ctrl+G')
+        getAction.setStatusTip('获取今日数据')
+        getAction.triggered.connect(self.close)
+
+        analyAction = QAction(QIcon('../img/analysis.png'), '文本预处理', self)
+        analyAction.setShortcut('Ctrl+A')
+        analyAction.setStatusTip('文本预处理')
+        analyAction.triggered.connect(self.close)
+
+        titleAction = QAction(QIcon('../img/title.png'), '列出今日标题', self)
+        titleAction.setShortcut('Ctrl+T')
+        titleAction.setStatusTip('列出今日标题')
+        titleAction.triggered.connect(self.close)
+
+        wordsAction = QAction(QIcon('../img/words.png'), '词频统计', self)
+        wordsAction.setShortcut('Ctrl+W')
+        wordsAction.setStatusTip('词频统计')
+        wordsAction.triggered.connect(self.close)
 
         menubar = self.menuBar()
-        fileMenu = menubar.addMenu('&File')
-        fileMenu.addAction(exitAction)
+        ToolMenu = menubar.addMenu('&Tools')
+        ToolMenu.addAction(exitAction)
 
-        toolbar = self.addToolBar('Exit')
+        toolbar = self.addToolBar('')
         toolbar.addAction(exitAction)
+        toolbar.addAction(getAction)
+        toolbar.addAction(analyAction)
+        toolbar.addAction(titleAction)
+        toolbar.addAction(wordsAction)
 
+        self.statusBar()
         self.show()
 
     def center(self):
