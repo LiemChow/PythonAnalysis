@@ -31,4 +31,12 @@
 
 * 
 
+## 进度
 
+* 点击退出按钮退出当前程序
+
+  ![截屏2020-07-05 下午8.42.15](/Users/linqun/Documents/GitHub/PythonAnalysis/截屏2020-07-05 下午8.42.15.png)
+
+* 点击日历图标显示当前日历
+
+  ![截屏2020-07-05 下午8.39.31](/Users/linqun/Documents/GitHub/PythonAnalysis/截屏2020-07-05 下午8.39.31.png)
