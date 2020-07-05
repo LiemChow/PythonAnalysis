@@ -1,9 +1,15 @@
 import sys
-from PyQt5.QtWidgets import QMainWindow, QAction, QApplication, QDesktopWidget
+from PyQt5.QtWidgets import (QMainWindow, QAction, QApplication, QDesktopWidget,
+                             QCalendarWidget, QLabel, QWidget,
+                             QMessageBox)
 from PyQt5.QtGui import QIcon
 
+from calculator_ui import Calculator
 
 class Example(QMainWindow):
+
+    updateUI = False
+    number = 1
 
     def __init__(self):
         super().__init__()
@@ -22,10 +28,15 @@ class Example(QMainWindow):
         exitAction.setStatusTip('退出')
         exitAction.triggered.connect(self.close)
 
+        calculatorAction = QAction(QIcon('../img/rili.png'), '日历', self)
+        calculatorAction.setShortcut('Ctrl+C')
+        calculatorAction.setStatusTip('日历')
+        calculatorAction.triggered.connect(self.calculator)
+
         getAction = QAction(QIcon('../img/huoqu.png'), '获取今日数据', self)
         getAction.setShortcut('Ctrl+G')
         getAction.setStatusTip('获取今日数据')
-        getAction.triggered.connect(self.close)
+        getAction.triggered.connect(self.getdata)
 
         analyAction = QAction(QIcon('../img/analysis.png'), '文本预处理', self)
         analyAction.setShortcut('Ctrl+A')
@@ -48,6 +59,7 @@ class Example(QMainWindow):
 
         toolbar = self.addToolBar('')
         toolbar.addAction(exitAction)
+        toolbar.addAction(calculatorAction)
         toolbar.addAction(getAction)
         toolbar.addAction(analyAction)
         toolbar.addAction(titleAction)
@@ -55,6 +67,15 @@ class Example(QMainWindow):
 
         self.statusBar()
         self.show()
+
+    def closeEvent(self, event):
+        reply = QMessageBox.question(self, 'Message',
+                                     "Are you sure to quit?", QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+
+        if reply == QMessageBox.Yes:
+            event.accept()
+        else:
+            event.ignore()
 
     def center(self):
         # 获取窗口
@@ -65,9 +86,20 @@ class Example(QMainWindow):
         qr.moveCenter(cp)
         self.move(qr.topLeft())
 
+    def calculator(self):
+        number = 2
+        print(number)
+
+    def getdata(self):
+        number = 3
+        print(number)
+
 
 if __name__ == '__main__':
 
     app = QApplication(sys.argv)
-    ex = Example()
+    mainui = Example()
+
+    cal = Calculator()
+
     sys.exit(app.exec_())
