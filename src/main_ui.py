@@ -5,6 +5,7 @@ from PyQt5.QtWidgets import (QMainWindow, QAction, QApplication, QDesktopWidget,
 from PyQt5.QtGui import QIcon
 
 from calculator_ui import Calculator
+from title_ui import Titles
 
 class Example(QMainWindow):
 
@@ -101,5 +102,7 @@ if __name__ == '__main__':
     mainui = Example()
 
     cal = Calculator()
+
+    title = Titles()
 
     sys.exit(app.exec_())
