@@ -21,6 +21,10 @@
 
   `pip3 install pyqt5`
 
+* 使用`BeautifulSoup`来进行数据的爬取
+    
+  `pip3 install BeautifulSoup4`
+
 * 使用`JieBa`分词进行分词
 
   `pip3 install Jieba`
