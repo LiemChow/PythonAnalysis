@@ -35,8 +35,14 @@
 
 * 点击退出按钮退出当前程序
 
-  ![截屏2020-07-05 下午8.42.15](../shortcut/截屏2020-07-05 下午8.42.15.png)
+  ![截屏2020-07-05 下午8.42.15](/Users/linqun/Documents/GitHub/PythonAnalysis/截屏2020-07-05 下午8.42.15.png)
 
 * 点击日历图标显示当前日历
 
-  ![截屏2020-07-05 下午8.39.31](../shortcut/截屏2020-07-05 下午8.39.31.png)
+  ![截屏2020-07-05 下午8.39.31](/Users/linqun/Documents/GitHub/PythonAnalysis/截屏2020-07-05 下午8.39.31.png)
+  
+* 获取文章标题，打开人民日报，可以看到所有的文章标题都在`<li>`的标签内，所以用`BeautifulSoup`中的`findAll()`函数获取所有标题
+
+  ![截屏2020-07-06 下午8.36.24](/Users/linqun/Documents/GitHub/PythonAnalysis/截屏2020-07-06 下午8.36.24.png)
+
+* 
