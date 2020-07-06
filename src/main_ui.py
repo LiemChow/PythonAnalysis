@@ -21,7 +21,7 @@ class Example(QMainWindow):
         self.resize(1200, 800)
         self.center()
 
-        self.setWindowTitle('人民日报——今日新闻分析')
+        self.setWindowTitle('Python analysis')
 
         exitAction = QAction(QIcon('../img/tuichu.png'), '退出', self)
         exitAction.setShortcut('Ctrl+Q')
