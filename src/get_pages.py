@@ -1,13 +1,13 @@
-# -*- coding:utf-8 -*-
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 
-# 得到所有的文章标题
-filename = '../data/titles.txt'
-html = urlopen("http://paper.people.com.cn/rmzk/html/2020-06/24/node_2651.htm")
-bsObj = BeautifulSoup(html.read(), 'html.parser')
-allText = bsObj.findAll({"li"}) and bsObj.findAll({"a"})
-# print(allText)
+
+# 根据得到的所有文章链接获取所有的文章内容
+filename = '../data/pages.txt'
+
+filelink = open('../data/titles_url.txt', 'r', encoding="utf-8")
+linklines = [i for i in filelink]
+filelink.close()
 
 
 def is_chinese(uchar):
@@ -43,23 +43,19 @@ def format_str(content):
     return content_str
 
 
-basic_str = str(allText)
-basic_str = format_str(basic_str)
-# print(basic_str)
+filename = '../data/pages.txt'
+pagesfile = open('../data/pages.txt', 'w', encoding="utf-8")
+for i in range(len(linklines) - 1):
+    urllink = "http://paper.people.com.cn/rmzk/html/2020-06/24/content_" + \
+        str(1994733 + i) + ".htm"
+    html = urlopen(urllink)
+    bsObj = BeautifulSoup(html.read(), 'html.parser')
+    allText = bsObj.findAll({"p"})
 
-with open(filename, 'w') as file_object:
-    file_object.write(basic_str)
+    basic_str = str(allText)
+    basic_str = format_str(basic_str)
 
-# 需要删除文本的第一行和最后一行
-# 按行读入，删除最后一行和第一行
-file_old = open('../data/titles.txt', 'r', encoding="utf-8")
-lines = [i for i in file_old]
-del lines[0]
-del lines[-1]
-file_old.close()
-# 再覆盖写入
-file_new = open('../data/titles.txt', 'w', encoding="utf-8")
-file_new .write(''.join(lines))
-file_new .close()
+    pagesfile.write(''.join(str(basic_str)))
 
-# 得到所有的文章链接
+
+pagesfile.close()
