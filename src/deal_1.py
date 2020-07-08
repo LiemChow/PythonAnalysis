@@ -71,3 +71,11 @@ hist.x_title = "高频词汇"
 
 hist.add('出现次数', frequencies)
 hist.render_to_file("../data/words_frequencies.svg")
+
+i = 0
+with open('../data/wordfinal_100.txt', 'w') as fileobject:
+    for k, v in data:
+        fileobject.write(k + ' ')
+        if i > 100:
+            break
+        i += 1

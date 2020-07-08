@@ -54,7 +54,8 @@ for i in range(len(linklines) - 1):
 
     basic_str = str(allText)
     basic_str = format_str(basic_str)
-
+    with open("../data/pages/" + str(i) + '.txt', 'w') as file_object:
+        file_object.write(str(basic_str))
     pagesfile.write(''.join(str(basic_str)))
 
 
