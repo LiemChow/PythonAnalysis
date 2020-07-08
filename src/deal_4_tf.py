@@ -55,6 +55,7 @@ if __name__ == "__main__":
     for i in range(len(weight)):
         print(u"-------这里输出第", i, u"类文本的词语tf-idf权重------")
         for j in range(len(word)):
+            #print(weight[i][j])
             result.write(str(weight[i][j]) + ' ')
         result.write('\r\n\r\n')
 
